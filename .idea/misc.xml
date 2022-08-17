@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/drawable-v24/custom_draw1.xml" value="0.1725" />
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/drawable/custom_draw.xml" value="0.1725" />
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/layout/fragment_add.xml" value="0.2" />
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/layout/fragment_list.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/shepe/AndroidStudioProjects/newsimple/app/src/main/res/layout/item_rc.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
