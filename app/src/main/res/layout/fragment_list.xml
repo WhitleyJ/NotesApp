@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white1"
+    android:background="@color/black2"
     tools:context=".fragments.ListFragment">
 
 
@@ -12,8 +12,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="@string/text_zam"
+        android:text="Создайте свою первую заметку"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:layout_margin="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

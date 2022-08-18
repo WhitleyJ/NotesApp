@@ -45,8 +45,8 @@ class ListFragment : Fragment() {
 
 
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        viewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
-            adapterRc.setData(user)
+        viewModel.readAllData.observe(viewLifecycleOwner, Observer { note ->
+            adapterRc.setData(note)
         })
 
     }

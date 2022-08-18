@@ -7,6 +7,7 @@
     android:layout_height="150dp"
     android:layout_gravity="center"
     android:layout_margin="20dp"
+    android:id="@+id/row_layout"
 
     app:cardCornerRadius="30dp"
     app:cardElevation="4dp">

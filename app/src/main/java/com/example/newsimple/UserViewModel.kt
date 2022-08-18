@@ -4,37 +4,37 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.newsimple.data.dao.UserDatabase
-import com.example.newsimple.data.dao.UserRepository
-import com.example.newsimple.entities.User
+import com.example.newsimple.data.dao.NoteDatabase
+import com.example.newsimple.data.dao.NoteRepository
+import com.example.newsimple.entities.Note
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    val readAllData: LiveData<List<User>>
-    private val repository: UserRepository
+    val readAllData: LiveData<List<Note>>
+    private val repository: NoteRepository
 
     init {
-        val userDao = UserDatabase.getDatabase(application).userDao()
-        repository = UserRepository(userDao)
+        val noteDao = NoteDatabase.getDatabase(application).noteDao()
+        repository = NoteRepository(noteDao)
         readAllData = repository.readAllData
     }
 
-    fun addUsers(user: User) {
+    fun addNote(note: Note) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addUser(user)
+            repository.addNote(note)
         }
     }
 
-    fun deleteUser(user: User) {
+    fun deleteNote(note: Note) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteUser(user)
+            repository.deleteNote(note)
         }
     }
 
-    fun updateUser(user: User) {
+    fun updateNote(note: Note) {
         viewModelScope.launch (Dispatchers.IO){
-            repository.updateUser(user)
+            repository.updateNote(note)
         }
     }
 }

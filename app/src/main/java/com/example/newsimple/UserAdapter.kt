@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newsimple.entities.User
+import com.example.newsimple.entities.Note
+import kotlinx.android.synthetic.main.item_rc.view.*
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-    var listUser = emptyList<User>()
+    var listNote = emptyList<Note>()
 
-//    var longClick = User()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textNote = view.findViewById<TextView>(R.id.textItemName)
@@ -19,28 +19,28 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val noteItem = LayoutInflater.from(parent.context).inflate(R.layout.item_rc, parent, false)
+        val noteItem = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_rc, parent, false)
         return ViewHolder(noteItem)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val itemNote = listUser[position]
-        holder.textNote.text = itemNote.firstName
-        holder.textDesc.text = itemNote.lastName
-        holder.textPrior.text = itemNote.age.toString()
-        holder.itemView.id = itemNote.id
+        val itemNote = listNote[position]
+        holder.textNote.text = itemNote.noteTitle
+        holder.textDesc.text = itemNote.noteDesc
+        holder.textPrior.text = itemNote.priory.toString()
 
-//        holder.itemView.setOnLongClickListener {
-////            longClick.invoke(listUser[position])
-//        }
+        holder.itemView.row_layout.setOnClickListener {
+        }
+
     }
 
     override fun getItemCount(): Int {
-        return listUser.size
+        return listNote.size
     }
 
-    fun setData(user: List<User>) {
-        this.listUser = user
+    fun setData(note: List<Note>) {
+        this.listNote = note
         notifyDataSetChanged()
     }
 }

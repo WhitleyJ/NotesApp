@@ -4,59 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black2"
     tools:context=".fragments.AddFragment">
 
-    <EditText
-        android:id="@+id/editInputText"
-        android:layout_margin="30dp"
+    <LinearLayout
+        android:background="@drawable/custom_draw1"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/note"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editInputDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:hint="@string/description"
-        app:layout_constraintEnd_toEndOf="@+id/editInputText"
-        app:layout_constraintStart_toStartOf="@+id/editInputText"
-        app:layout_constraintTop_toBottomOf="@+id/editInputText" />
+        <EditText
+            android:id="@+id/editInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/white"
+            android:hint="@string/note"
+            android:textColorHint="@color/white1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editInputPriori"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:hint="@string/prioritet"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/editInputDesc"
-        app:layout_constraintStart_toStartOf="@+id/editInputDesc"
-        app:layout_constraintTop_toBottomOf="@+id/editInputDesc" />
+        <EditText
+            android:id="@+id/editInputDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/white"
+            android:hint="@string/description"
+            android:textColorHint="@color/white1"
+            app:layout_constraintEnd_toEndOf="@+id/editInputText"
+            app:layout_constraintStart_toStartOf="@+id/editInputText"
+            app:layout_constraintTop_toBottomOf="@+id/editInputText" />
 
-    <Button
-        android:id="@+id/butAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="@string/save"
-        android:background="@drawable/custom_draw"
-        app:layout_constraintEnd_toEndOf="@+id/editInputPriori"
-        app:layout_constraintStart_toStartOf="@+id/editInputPriori"
-        app:layout_constraintTop_toBottomOf="@+id/editInputPriori" />
-    <Button
-        android:id="@+id/butDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="@string/delete"
-        android:background="@drawable/custom_draw"
-        app:layout_constraintEnd_toEndOf="@+id/butAdd"
-        app:layout_constraintStart_toStartOf="@+id/butAdd"
-        app:layout_constraintTop_toBottomOf="@+id/butAdd" />
+        <EditText
+            android:id="@+id/editInputPriori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/prioritet"
+            android:textColorHint="@color/white1"
+            android:backgroundTint="@color/white"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/editInputDesc"
+            app:layout_constraintStart_toStartOf="@+id/editInputDesc"
+            app:layout_constraintTop_toBottomOf="@+id/editInputDesc" />
+
+        <Button
+            android:id="@+id/butAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/custom_draw"
+            android:text="@string/save"
+            app:layout_constraintEnd_toEndOf="@+id/editInputPriori"
+            app:layout_constraintStart_toStartOf="@+id/editInputPriori"
+            app:layout_constraintTop_toBottomOf="@+id/editInputPriori" />
+
+    </LinearLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
