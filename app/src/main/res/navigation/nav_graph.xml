@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listFragment_to_editFragment"
             app:destination="@id/editFragment" />
+<!--        <argument-->
+<!--            android:name="currentNote"-->
+<!--            app:argType="com.example.newsimple.entities.Note" />-->
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -34,8 +37,8 @@
         <action
             android:id="@+id/action_editFragment_to_listFragment"
             app:destination="@id/listFragment" />
-<!--        <argument-->
-<!--            android:name="currentNote"-->
-<!--            app:argType="com.example.newsimple.entities.User" />-->
+        <argument
+            android:name="currentNote"
+            app:argType="com.example.newsimple.entities.Note" />
     </fragment>
 </navigation>

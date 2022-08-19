@@ -4,17 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsimple.entities.Note
+import com.example.newsimple.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.item_rc.view.*
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     var listNote = emptyList<Note>()
-
+    private  var func = Functions()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textNote = view.findViewById<TextView>(R.id.textItemName)
-        val textDesc = view.findViewById<TextView>(R.id.textItemDesc)
         val textPrior = view.findViewById<TextView>(R.id.textItemPrior)
     }
 
@@ -26,14 +27,23 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemNote = listNote[position]
-        holder.textNote.text = itemNote.noteTitle
-        holder.textDesc.text = itemNote.noteDesc
-        holder.textPrior.text = itemNote.priory.toString()
 
-        holder.itemView.row_layout.setOnClickListener {
+        holder.textNote.text = itemNote.noteTitle
+        holder.textPrior.apply {
+            text = itemNote.priory.toString()
         }
 
+        holder.itemView.row_layout.setOnLongClickListener {
+
+            true
+        }
+
+        holder.itemView.row_layout.setOnClickListener {
+            val action = func.navDirections(itemNote)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return listNote.size
@@ -44,3 +54,4 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 }
+

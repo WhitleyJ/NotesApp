@@ -3,49 +3,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.EditFragment">
-
-    <EditText
-        android:id="@+id/editGetName"
-        android:layout_margin="30dp"
+    <LinearLayout
+        android:background="@drawable/custom_draw1"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/note"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editGetDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:hint="@string/description"
-        app:layout_constraintEnd_toEndOf="@+id/editGetName"
-        app:layout_constraintStart_toStartOf="@+id/editGetName"
-        app:layout_constraintTop_toBottomOf="@+id/editGetName" />
+        <EditText
+            android:id="@+id/editGetName"
+            android:layout_margin="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editGetPriory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:hint="@string/prioritet"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/editGetDesc"
-        app:layout_constraintStart_toStartOf="@+id/editGetDesc"
-        app:layout_constraintTop_toBottomOf="@+id/editGetDesc" />
+        <EditText
+            android:id="@+id/editGetDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:hint="@string/description"
+            app:layout_constraintEnd_toEndOf="@+id/editGetName"
+            app:layout_constraintStart_toStartOf="@+id/editGetName"
+            app:layout_constraintTop_toBottomOf="@+id/editGetName" />
 
-    <Button
-        android:id="@+id/butAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="@string/resave"
-        android:background="@drawable/custom_draw"
-        app:layout_constraintEnd_toEndOf="@+id/editGetPriory"
-        app:layout_constraintStart_toStartOf="@+id/editGetPriory"
-        app:layout_constraintTop_toBottomOf="@+id/editGetPriory" />
+        <EditText
+            android:id="@+id/editGetPriory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:hint="@string/prioritet"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/editGetDesc"
+            app:layout_constraintStart_toStartOf="@+id/editGetDesc"
+            app:layout_constraintTop_toBottomOf="@+id/editGetDesc" />
+
+        <Button
+            android:id="@+id/butUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="@string/resave"
+            android:background="@drawable/custom_draw"
+            app:layout_constraintEnd_toEndOf="@+id/editGetPriory"
+            app:layout_constraintStart_toStartOf="@+id/editGetPriory"
+            app:layout_constraintTop_toBottomOf="@+id/editGetPriory" />
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

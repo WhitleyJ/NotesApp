@@ -31,10 +31,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteNote(note)
         }
     }
-
     fun updateNote(note: Note) {
-        viewModelScope.launch (Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             repository.updateNote(note)
         }
     }
+
 }

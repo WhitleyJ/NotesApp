@@ -26,23 +26,26 @@ class ListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
         setupRecyclerView(view)
+
         view.floatActionB.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
+
         return view
     }
 
 
-    private fun setupRecyclerView(view: View){
+    private fun setupRecyclerView(view: View) {
         val rcView = view.rcView
         val adapterRc = UserAdapter()
-        rcView.adapter = adapterRc
-        rcView.layoutManager = GridLayoutManager(
-            context, 2,
-            GridLayoutManager.VERTICAL, false
-        )
-        rcView.hasFixedSize()
-
+        rcView.apply {
+            adapter = adapterRc
+            layoutManager = GridLayoutManager(
+                context, 2,
+                GridLayoutManager.VERTICAL, false
+            )
+            hasFixedSize()
+        }
 
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { note ->
