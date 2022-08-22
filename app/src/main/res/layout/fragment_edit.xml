@@ -7,11 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.EditFragment">
     <LinearLayout
-        android:background="@drawable/custom_draw1"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginBottom="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,47 +19,62 @@
 
         <EditText
             android:id="@+id/editGetName"
-            android:layout_margin="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+
+            android:background="@drawable/custom_view"
             android:hint="@string/note"
+            android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editGetDesc"
+
+            android:id="@+id/editGetPriory"
+            android:inputType="number"
+            android:hint="@string/prioritet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:hint="@string/description"
-            app:layout_constraintEnd_toEndOf="@+id/editGetName"
-            app:layout_constraintStart_toStartOf="@+id/editGetName"
-            app:layout_constraintTop_toBottomOf="@+id/editGetName" />
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@drawable/custom_view"
+
+            android:textColorHint="@color/white1"
+            app:layout_constraintEnd_toEndOf="@+id/editInputText"
+            app:layout_constraintStart_toStartOf="@+id/editInputText"
+            app:layout_constraintTop_toBottomOf="@+id/editInputText" />
 
         <EditText
-            android:id="@+id/editGetPriory"
+            android:id="@+id/editGetDesc"
+            android:hint="@string/description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:hint="@string/prioritet"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/editGetDesc"
-            app:layout_constraintStart_toStartOf="@+id/editGetDesc"
-            app:layout_constraintTop_toBottomOf="@+id/editGetDesc" />
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
+            android:gravity="top"
+            android:background="@drawable/custom_view"
 
-        <Button
-            android:id="@+id/butUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:text="@string/resave"
-            android:background="@drawable/custom_draw"
-            app:layout_constraintEnd_toEndOf="@+id/editGetPriory"
-            app:layout_constraintStart_toStartOf="@+id/editGetPriory"
-            app:layout_constraintTop_toBottomOf="@+id/editGetPriory" />
+            app:layout_constraintEnd_toEndOf="@+id/editInputDesc"
+            app:layout_constraintStart_toStartOf="@+id/editInputDesc"
+            app:layout_constraintTop_toBottomOf="@+id/editInputDesc" />
+
+
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/butUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/red"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 

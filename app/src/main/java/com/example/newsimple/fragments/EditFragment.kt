@@ -1,17 +1,15 @@
 package com.example.newsimple.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.newsimple.Functions
 import com.example.newsimple.R
-import com.example.newsimple.UserViewModel
 import com.example.newsimple.entities.Note
+import com.example.newsimple.models.UserViewModel
 import kotlinx.android.synthetic.main.fragment_edit.*
 import kotlinx.android.synthetic.main.fragment_edit.view.*
 
@@ -19,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_edit.view.*
 class EditFragment : Fragment() {
     private val args by navArgs<EditFragmentArgs>()
     private lateinit var viewModel: UserViewModel
-    private  var func = Functions()
+    private var func = Functions()
 
 
     override fun onCreateView(
@@ -27,8 +25,11 @@ class EditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        setHasOptionsMenu(true)
 
+
+
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         getTextFromArgs(view)
 
         view.butUpdate.setOnClickListener {
@@ -36,6 +37,8 @@ class EditFragment : Fragment() {
         }
         return view
     }
+
+
 
     private fun getTextFromArgs(view: View) {
         view.editGetName.setText(args.currentNote.noteTitle)
@@ -53,5 +56,23 @@ class EditFragment : Fragment() {
             viewModel.updateNote(updateNote)
             findNavController().navigate(R.id.action_editFragment_to_listFragment)
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.edit_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home ){
+            activity?.onBackPressed()
+            return true
+        }
+        if(item.itemId == R.id.menu_delete){
+            viewModel.deleteNote(args.currentNote)
+            findNavController().navigate(R.id.action_editFragment_to_listFragment)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

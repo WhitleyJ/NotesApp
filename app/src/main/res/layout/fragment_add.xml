@@ -7,11 +7,11 @@
     android:background="@color/black2"
     tools:context=".fragments.AddFragment">
 
+
     <LinearLayout
-        android:background="@drawable/custom_draw1"
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="75dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,53 +23,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:backgroundTint="@color/white"
+            android:background="@drawable/custom_view"
+
             android:hint="@string/note"
-            android:textColorHint="@color/white1"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editInputDesc"
+
+            android:id="@+id/editInputPriori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:backgroundTint="@color/white"
-            android:hint="@string/description"
+            android:background="@drawable/custom_view"
+            android:hint="@string/prioritet"
+            android:inputType="number"
+
+            android:padding="10dp"
+
             android:textColorHint="@color/white1"
             app:layout_constraintEnd_toEndOf="@+id/editInputText"
             app:layout_constraintStart_toStartOf="@+id/editInputText"
             app:layout_constraintTop_toBottomOf="@+id/editInputText" />
 
         <EditText
-            android:id="@+id/editInputPriori"
+            android:id="@+id/editInputDesc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:hint="@string/prioritet"
-            android:textColorHint="@color/white1"
-            android:backgroundTint="@color/white"
-            android:inputType="number"
+            android:background="@drawable/custom_view"
+            android:gravity="top"
+            android:hint="@string/description"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
+
             app:layout_constraintEnd_toEndOf="@+id/editInputDesc"
             app:layout_constraintStart_toStartOf="@+id/editInputDesc"
             app:layout_constraintTop_toBottomOf="@+id/editInputDesc" />
-
-        <Button
-            android:id="@+id/butAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/custom_draw"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="@+id/editInputPriori"
-            app:layout_constraintStart_toStartOf="@+id/editInputPriori"
-            app:layout_constraintTop_toBottomOf="@+id/editInputPriori" />
-
     </LinearLayout>
 
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/butAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/red"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

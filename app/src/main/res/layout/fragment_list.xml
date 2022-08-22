@@ -8,23 +8,13 @@
     tools:context=".fragments.ListFragment">
 
 
-    <TextView
 
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="Создайте свою первую заметку"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:layout_margin="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/custom_draw1"
+
         android:layout_marginTop="100dp"
         tools:listitem="@layout/item_rc"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/white1"
+        android:backgroundTint="@color/red"
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

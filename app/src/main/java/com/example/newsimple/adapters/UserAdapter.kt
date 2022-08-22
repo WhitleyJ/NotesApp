@@ -1,4 +1,4 @@
-package com.example.newsimple
+package com.example.newsimple.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newsimple.Functions
+import com.example.newsimple.R
 import com.example.newsimple.entities.Note
-import com.example.newsimple.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.item_rc.view.*
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     var listNote = emptyList<Note>()
-    private  var func = Functions()
+    private var func = Functions()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textNote = view.findViewById<TextView>(R.id.textItemName)
@@ -33,10 +34,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
             text = itemNote.priory.toString()
         }
 
-        holder.itemView.row_layout.setOnLongClickListener {
 
-            true
-        }
 
         holder.itemView.row_layout.setOnClickListener {
             val action = func.navDirections(itemNote)

@@ -16,9 +16,7 @@
         <action
             android:id="@+id/action_listFragment_to_editFragment"
             app:destination="@id/editFragment" />
-<!--        <argument-->
-<!--            android:name="currentNote"-->
-<!--            app:argType="com.example.newsimple.entities.Note" />-->
+
     </fragment>
     <fragment
         android:id="@+id/addFragment"

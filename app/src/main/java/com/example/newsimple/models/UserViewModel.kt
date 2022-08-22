@@ -1,4 +1,4 @@
-package com.example.newsimple
+package com.example.newsimple.models
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
