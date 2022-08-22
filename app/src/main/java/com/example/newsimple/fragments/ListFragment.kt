@@ -1,22 +1,16 @@
 package com.example.newsimple.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsimple.R
 import com.example.newsimple.adapters.UserAdapter
 import com.example.newsimple.models.UserViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
-import kotlinx.android.synthetic.main.item_rc.view.*
 
 
 class ListFragment : Fragment() {
@@ -30,6 +24,7 @@ class ListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
         setupRecyclerView(view)
+        setHasOptionsMenu(true)
 
 
         view.floatActionB.setOnClickListener {
@@ -53,7 +48,10 @@ class ListFragment : Fragment() {
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { note ->
             adapterRc.setData(note)
         })
-
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 }

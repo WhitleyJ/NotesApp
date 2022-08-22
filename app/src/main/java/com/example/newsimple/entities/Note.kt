@@ -12,5 +12,5 @@ data class Note(
     val id: Int,
     val noteTitle: String,
     val noteDesc: String,
-    val priory: Int
+    val priory : String
 ):Parcelable

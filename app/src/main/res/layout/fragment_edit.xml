@@ -7,15 +7,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.EditFragment">
     <LinearLayout
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+
         android:layout_marginBottom="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@drawable/red_oval"
+                android:layout_width="35dp"
+
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:src="@drawable/yellow_oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:src="@drawable/green_oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/editGetName"
@@ -23,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:padding="10dp"
-
+            android:textColor="@color/white"
             android:background="@drawable/custom_view"
             android:hint="@string/note"
             android:textColorHint="@color/white"
@@ -31,21 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
 
-            android:id="@+id/editGetPriory"
-            android:inputType="number"
-            android:hint="@string/prioritet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:padding="10dp"
-            android:background="@drawable/custom_view"
-
-            android:textColorHint="@color/white1"
-            app:layout_constraintEnd_toEndOf="@+id/editInputText"
-            app:layout_constraintStart_toStartOf="@+id/editInputText"
-            app:layout_constraintTop_toBottomOf="@+id/editInputText" />
 
         <EditText
             android:id="@+id/editGetDesc"
@@ -54,6 +68,7 @@
             android:layout_height="match_parent"
             android:layout_margin="20dp"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:gravity="top"
             android:background="@drawable/custom_view"
@@ -74,7 +89,8 @@
         android:backgroundTint="@color/red"
         android:src="@drawable/ic_baseline_check_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="TODO" />
 
 
 

@@ -18,13 +18,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:layout_height="35dp"
+            >
+            <ImageView
+                android:id="@+id/red_item"
+                android:background="@drawable/red_oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/yellow_item"
+                android:background = "@drawable/yellow_oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/green_item"
+                android:background="@drawable/green_oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO" />
+        </LinearLayout>
+
         <EditText
             android:id="@+id/editInputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/custom_view"
-
             android:hint="@string/note"
             android:padding="10dp"
             android:textColorHint="@color/white"
@@ -32,22 +63,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
 
-            android:id="@+id/editInputPriori"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/custom_view"
-            android:hint="@string/prioritet"
-            android:inputType="number"
-
-            android:padding="10dp"
-
-            android:textColorHint="@color/white1"
-            app:layout_constraintEnd_toEndOf="@+id/editInputText"
-            app:layout_constraintStart_toStartOf="@+id/editInputText"
-            app:layout_constraintTop_toBottomOf="@+id/editInputText" />
 
         <EditText
             android:id="@+id/editInputDesc"
@@ -58,6 +74,7 @@
             android:gravity="top"
             android:hint="@string/description"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
 
             app:layout_constraintEnd_toEndOf="@+id/editInputDesc"
