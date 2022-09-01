@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-    android:layout_height="150dp"
+    android:layout_height="100dp"
     android:layout_gravity="center"
-    android:layout_margin="20dp"
+    android:layout_margin="15dp"
     android:id="@+id/row_layout"
-    app:cardCornerRadius="30dp"
+    app:cardCornerRadius="15dp"
     app:cardElevation="4dp">
 
     <!--on below line we are creating a
@@ -21,11 +21,11 @@
 
         <ImageView
             android:id="@+id/color_priory"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:background="@drawable/green_oval"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="110dp"/>
+            android:layout_marginStart="130dp"/>
 
         <!--on below line we are creating
             a simple image view-->
@@ -33,36 +33,14 @@
             android:id="@+id/textItemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
 
             android:padding="4dp"
             android:text="@string/app_name"
-            android:textSize="25dp"
-            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
             android:textColor="@color/white"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
-
-
-        <!--on below line we are creating
-            a simple text view-->
-
-
-        <TextView
-            android:id="@+id/textItemPrior"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:padding="4dp"
-            android:textSize="18dp"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            tools:ignore="RtlCompat" />
-
-
 
     </LinearLayout>
 

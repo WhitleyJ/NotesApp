@@ -8,26 +8,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.newsimple.R
 import com.example.newsimple.entities.Note
 import com.example.newsimple.models.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import kotlin.random.Random
 
 
 class AddFragment : Fragment() {
     private lateinit var viewModel: UserViewModel
     private var priority: String = LOW_PRIORITY
 
-    override
-
-    fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
 
         view.butAdd.setOnClickListener {
             insertDataToDatabase()
@@ -42,7 +43,7 @@ class AddFragment : Fragment() {
             red_item.setImageResource(0)
             yellow_item.setImageResource(0)
         }
-        red_item?.setOnClickListener {
+        red_item.setOnClickListener {
             priority = HIGH_PRIORITY
             red_item.setImageResource(R.drawable.ic_baseline_check_24)
             yellow_item.setImageResource(0)
@@ -54,10 +55,8 @@ class AddFragment : Fragment() {
             red_item.setImageResource(0)
             green_item.setImageResource(0)
         }
-
         super.onViewCreated(view, savedInstanceState)
     }
-
 
     private fun insertDataToDatabase() {
         val title = editInputText.text.toString()
@@ -66,18 +65,24 @@ class AddFragment : Fragment() {
 
         val note = Note(0, title, desc, priority)
         viewModel.addNote(note)
-        findNavController().navigate(R.id.action_addFragment_to_listFragment)
-
-
+        addToList()
     }
+
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            activity?.onBackPressed()
+            addToList()
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+
+
+    private fun addToList() {
+        findNavController().navigate(R.id.action_addFragment_to_listFragment)
     }
 
     companion object {

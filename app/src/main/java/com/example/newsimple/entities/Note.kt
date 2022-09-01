@@ -13,4 +13,4 @@ data class Note(
     val noteTitle: String,
     val noteDesc: String,
     val priory : String
-):Parcelable
+) :Parcelable

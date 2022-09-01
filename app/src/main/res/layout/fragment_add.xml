@@ -58,6 +58,7 @@
             android:background="@drawable/custom_view"
             android:hint="@string/note"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

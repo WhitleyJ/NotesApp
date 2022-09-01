@@ -22,7 +22,8 @@
             android:layout_margin="25dp"
             android:orientation="horizontal">
             <ImageView
-                android:src="@drawable/red_oval"
+                android:id="@+id/red_item2"
+                android:background="@drawable/red_oval"
                 android:layout_width="35dp"
 
                 android:layout_height="35dp"
@@ -31,7 +32,8 @@
                 android:layout_width="15dp"
                 android:layout_height="wrap_content"/>
             <ImageView
-                android:src="@drawable/yellow_oval"
+                android:id="@+id/yellow_item2"
+                android:background="@drawable/yellow_oval"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:contentDescription="TODO" />
@@ -39,7 +41,8 @@
                 android:layout_width="15dp"
                 android:layout_height="wrap_content"/>
             <ImageView
-                android:src="@drawable/green_oval"
+                android:id="@+id/green_item2"
+                android:background="@drawable/green_oval"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:contentDescription="TODO" />

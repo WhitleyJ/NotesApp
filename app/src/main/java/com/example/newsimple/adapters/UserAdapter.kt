@@ -14,6 +14,7 @@ import com.example.newsimple.entities.Note
 import com.example.newsimple.fragments.AddFragment.Companion.HIGH_PRIORITY
 import com.example.newsimple.fragments.AddFragment.Companion.LOW_PRIORITY
 import com.example.newsimple.fragments.AddFragment.Companion.MID_PRIORITY
+import com.example.newsimple.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.item_rc.view.*
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
@@ -49,7 +50,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
         }
 
         holder.itemView.row_layout.setOnClickListener {
-            val action = func.navDirections(itemNote)
+            val action = ListFragmentDirections.actionListFragmentToEditFragment(itemNote)
+
             holder.itemView.findNavController().navigate(action)
         }
 
