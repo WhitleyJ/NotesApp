@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Note>>
+
     private val repository: NoteRepository
 
     init {
@@ -19,6 +20,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         repository = NoteRepository(noteDao)
         readAllData = repository.readAllData
     }
+    fun readHighNotes(): LiveData<List<Note>> = repository.readHighNotes()
+    fun readMiddleNotes(): LiveData<List<Note>> = repository.readMiddleNotes()
+    fun readLowNotes(): LiveData<List<Note>> = repository.readLowNotes()
 
     fun addNote(note: Note) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -34,6 +38,11 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun updateNote(note: Note) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateNote(note)
+        }
+    }
+    fun deleteAllNotes(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllNotes()
         }
     }
 
