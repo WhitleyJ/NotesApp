@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/row_layout_dialog"
+
+    app:cardElevation="4dp">
+
+    <!--on below line we are creating a
+        linear layout for grid view item-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stype_for_dialog"
+
+        android:orientation="vertical">
+        <ImageView
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+
+
+        <!--on below line we are creating
+            a simple image view-->
+        <TextView
+            android:id="@+id/textItemName"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:padding="4dp"
+            android:text="Вы действительно хотите удалить заметку?"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black2"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/answerYes"
+            android:text="Да"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/custom_draw2_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"/>
+
+        <TextView
+            android:id="@+id/answerNo"
+            android:text="Нет"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_draw2_dialog_no"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="6dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

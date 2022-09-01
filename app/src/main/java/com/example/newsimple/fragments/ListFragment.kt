@@ -3,6 +3,7 @@ package com.example.newsimple.fragments
 import android.os.Bundle
 import android.view.*
 import android.widget.Adapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.newsimple.R
 import com.example.newsimple.adapters.UserAdapter
 import com.example.newsimple.models.UserViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -82,7 +84,22 @@ class ListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.deleteAllButton){
-            viewModel.deleteAllNotes()
+            val buttonSheet: BottomSheetDialog = BottomSheetDialog(requireContext())
+            buttonSheet.setContentView(R.layout.dialog_all)
+            buttonSheet.show()
+
+            val dialogYesAll = buttonSheet.findViewById<TextView>(R.id.answerYesAll)
+            val dialogNoAll = buttonSheet.findViewById<TextView>(R.id.answerNoAll)
+
+            dialogYesAll!!.setOnClickListener {
+                viewModel.deleteAllNotes()
+                buttonSheet.onBackPressed()
+
+            }
+            dialogNoAll!!.setOnClickListener {
+                buttonSheet.onBackPressed()
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }

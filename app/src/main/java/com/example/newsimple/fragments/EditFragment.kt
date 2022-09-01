@@ -2,6 +2,7 @@ package com.example.newsimple.fragments
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -13,10 +14,13 @@ import com.example.newsimple.fragments.AddFragment.Companion.HIGH_PRIORITY
 import com.example.newsimple.fragments.AddFragment.Companion.LOW_PRIORITY
 import com.example.newsimple.fragments.AddFragment.Companion.MID_PRIORITY
 import com.example.newsimple.models.UserViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.dialog.*
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_edit.*
 import kotlinx.android.synthetic.main.fragment_edit.view.*
+import org.w3c.dom.Text
 
 
 class EditFragment : Fragment() {
@@ -88,7 +92,6 @@ class EditFragment : Fragment() {
     }
 
 
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.edit_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -100,8 +103,26 @@ class EditFragment : Fragment() {
             return true
         }
         if (item.itemId == R.id.menu_delete) {
-            viewModel.deleteNote(args.currentNote)
-            editToList()
+            val buttonSheet: BottomSheetDialog = BottomSheetDialog(requireContext())
+            buttonSheet.setContentView(R.layout.dialog)
+            buttonSheet.show()
+
+            val dialogYes = buttonSheet.findViewById<TextView>(R.id.answerYes)
+            val dialogNo = buttonSheet.findViewById<TextView>(R.id.answerNo)
+
+            dialogYes!!.setOnClickListener {
+                viewModel.deleteNote(args.currentNote)
+                buttonSheet.onBackPressed()
+                editToList()
+            }
+            dialogNo!!.setOnClickListener {
+                buttonSheet.onBackPressed()
+            }
+
+
+
+
+
         }
         return super.onOptionsItemSelected(item)
     }
