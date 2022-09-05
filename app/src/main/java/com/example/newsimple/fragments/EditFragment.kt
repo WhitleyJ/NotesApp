@@ -118,11 +118,6 @@ class EditFragment : Fragment() {
             dialogNo!!.setOnClickListener {
                 buttonSheet.onBackPressed()
             }
-
-
-
-
-
         }
         return super.onOptionsItemSelected(item)
     }

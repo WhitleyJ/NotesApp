@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.graphics.toColorInt
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newsimple.Functions
 import com.example.newsimple.R
+import com.example.newsimple.diffutills.MyDiffCallBack
 import com.example.newsimple.entities.Note
 import com.example.newsimple.fragments.AddFragment.Companion.HIGH_PRIORITY
 import com.example.newsimple.fragments.AddFragment.Companion.LOW_PRIORITY
@@ -18,14 +18,11 @@ import com.example.newsimple.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.item_rc.view.*
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-    var listNote = emptyList<Note>()
-    private var func = Functions()
-
+    var oldList = emptyList<Note>()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var textNote = view.findViewById<TextView>(R.id.textItemName)
         var colorPriory = view.findViewById<ImageView>(R.id.color_priory)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,7 +32,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val itemNote = listNote[position]
+        val itemNote = oldList[position]
         holder.textNote.text = itemNote.noteTitle
         when (itemNote.priory) {
             HIGH_PRIORITY -> {
@@ -48,23 +45,20 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
                 holder.colorPriory.setBackgroundResource(R.drawable.yellow_oval)
             }
         }
-
         holder.itemView.row_layout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToEditFragment(itemNote)
-
             holder.itemView.findNavController().navigate(action)
         }
-
     }
-
+    fun setData(list: List<Note>){
+        val callback = MyDiffCallBack(oldList,list)
+        val result = DiffUtil.calculateDiff(callback)
+        result.dispatchUpdatesTo(this)
+        oldList = list
+    }
 
     override fun getItemCount(): Int {
-        return listNote.size
-    }
-
-    fun setData(note: List<Note>) {
-        this.listNote = note
-        notifyDataSetChanged()
+        return oldList.size
     }
 }
 
