@@ -5,8 +5,8 @@
         android:icon="@drawable/ic_baseline_delete_24"
         app:showAsAction="ifRoom"
         android:title="TODO" />
-    <item android:id="@+id/search_button"
-        android:icon="@drawable/ic_baseline_search_24"
-        app:showAsAction="ifRoom"
-        android:title="TODO" />
+<!--    <item android:id="@+id/search_button"-->
+<!--        android:icon="@drawable/ic_baseline_search_24"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:title="TODO" />-->
 </menu>

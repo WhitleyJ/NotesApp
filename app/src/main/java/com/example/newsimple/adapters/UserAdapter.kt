@@ -20,8 +20,11 @@ import kotlinx.android.synthetic.main.item_rc.view.*
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     var oldList = emptyList<Note>()
 
+
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var textNote = view.findViewById<TextView>(R.id.textItemName)
+        var textDesc = view.findViewById<TextView>(R.id.textItemDesc)
         var colorPriory = view.findViewById<ImageView>(R.id.color_priory)
     }
 
@@ -34,6 +37,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemNote = oldList[position]
         holder.textNote.text = itemNote.noteTitle
+        holder.textDesc.text = itemNote.noteDesc
         when (itemNote.priory) {
             HIGH_PRIORITY -> {
                 holder.colorPriory.setBackgroundResource(R.drawable.red_oval)
@@ -48,6 +52,10 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
         holder.itemView.row_layout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToEditFragment(itemNote)
             holder.itemView.findNavController().navigate(action)
+        }
+        holder.itemView.row_layout.setOnLongClickListener {
+
+            true
         }
     }
     fun setData(list: List<Note>){

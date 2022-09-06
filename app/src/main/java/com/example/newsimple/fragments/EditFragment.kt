@@ -35,6 +35,7 @@ class EditFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
         setHasOptionsMenu(true)
+        activity?.actionBar?.show()
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         return view

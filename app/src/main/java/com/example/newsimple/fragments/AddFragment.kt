@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -27,6 +28,7 @@ class AddFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
+        activity?.actionBar?.show()
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
 
@@ -68,8 +70,6 @@ class AddFragment : Fragment() {
         addToList()
     }
 
-
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             addToList()
@@ -77,9 +77,6 @@ class AddFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
-
 
     private fun addToList() {
         findNavController().navigate(R.id.action_addFragment_to_listFragment)

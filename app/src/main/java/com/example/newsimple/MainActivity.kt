@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
 
+
     }
 
     override fun onNavigateUp(): Boolean {
